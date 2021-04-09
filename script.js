@@ -1,6 +1,5 @@
 const buttonValue = document.querySelectorAll("button")
 const screenValue = document.querySelector("#number");
-const answer = document.querySelector('#answer')
 let isOperator;
 let isdot;
 let isNumber;
