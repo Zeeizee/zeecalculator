@@ -71,3 +71,22 @@ font-size: 1.5rem;
 font-weight: bold;
 
 }
+@media screen and (max-width:350px){
+    .heading{
+text-align: center;
+font-size: 2rem;
+color: white;
+}
+.grid-item {
+  padding: 5px 10px;
+margin: 1px;
+  width: 70px;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+
+
+}
