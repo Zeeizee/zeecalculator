@@ -1,69 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100&display=swap');
 body{
     margin: 0px;
     padding: 0px;
-    background-color: rgb(228, 228, 228);
+    background-color: rgb(2, 2, 2);
     
 }
 .grid-container {
-    width: 100%;
+    
   display: grid;
-  
+  width: 100%;
   grid-template-columns: auto auto auto auto;
-  justify-content: space-between;
+  justify-content: center;
 
   
   padding: 3px;
 }
 
 .grid-item {
-  padding: 5px 10px;
-margin: 2px;
-  width: 80px;
-  border-radius: 5px;
+  padding: 5px 10px;  
+  width:59px ;
   outline: none;
+  margin: 0.5px;
   font-size: 1.5rem;
   text-align: center;
+  border: none;
+  box-shadow: rgba(182, 182, 211, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+.plus{
+  background-color:#F79F1F;
+    box-shadow: rgba(20, 20, 53, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
+
+}
+.minus{
+  background-color: #A3CB38;
+}
+.multiply{
+background-color: #D980FA;
+}
+.divide{
+  background-color: #FFC312;
+
 }
 .text
 {
-    width: 97%;
+        width: 96%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid lightslategray;
-    color:black;
-    background-color: white;
-    border-radius: 5px;
+    
+    
+     padding:5px 5px;
+    
+   
     
 
 }
+.text input{
+  background-color:white;
+ 
+}
+
 .container{
         
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding:10px ;
-
-    border-radius: 5px;
+    align-items: center;    
+max-width: 250px;
+    
     position: absolute;
     top: 50%;
     left: 50%;
       transform: translate(-50%,-50%);
-      background-color: rgb(5, 5, 77);
+     background-color: #4f9b9440;
+          box-shadow: rgba(214, 238, 236, 0.25) 0px 30px 60px -12px inset, rgba(15, 161, 130, 0.3) 0px 18px 36px -18px inset;
+
 
 
 }
 .heading{
 text-align: center;
-font-size: 3rem;
+font-size: 1.5rem;
 color: white;
+padding:20px 0px;
+font-family: 'Antonio', sans-serif;
+
 }
 #number{
 
     position: relative;
 width: 98%;
-height: 50px;
+
 border: none;
 outline: none;
 text-align: right;
