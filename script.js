@@ -34,6 +34,7 @@ buttonValue.forEach(element => {
             }
             isOperator = false;
             isNumber = true;
+            isdot = false;
 
         }
         else if (buttonText === '-' && isOperator) {
@@ -45,12 +46,14 @@ buttonValue.forEach(element => {
             }
             isOperator = false;
             isNumber = true;
+            isdot = false;
         }
         else if (buttonText === '*' && isOperator) {
             if (screenValue.value != '0') {
                 screenValue.value += buttonText;
                 isOperator = false;
                 isNumber = true;
+                isdot = false;
             }
 
         }
@@ -59,19 +62,11 @@ buttonValue.forEach(element => {
                 screenValue.value += buttonText;
                 isOperator = false;
                 isNumber = true;
+                isdot = false;
             }
 
         }
-        else if (buttonText === '%' && isOperator) {
-            if (screenValue.value != '0') {
-                screenValue.value += buttonText;
-                isOperator = false;
-                isNumber = true;
-            }
-
-        }
-
-
+       
         else if (buttonText >= '0' && buttonText <= 9 && isNumber) {
             if (buttonText === '0' && screenValue.value === '0') {
                 isNumber = true;

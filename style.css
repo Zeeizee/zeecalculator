@@ -26,6 +26,15 @@ body{
   border: none;
   box-shadow: rgba(182, 182, 211, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
+.grid-item:active{
+  background-color: #757474;
+}
+.equal{
+  background-color: #29696b;
+  color: white;
+   grid-row: span 4; 
+}
+
 .plus{
   background-color:#F79F1F;
     box-shadow: rgba(20, 20, 53, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
