@@ -2,9 +2,10 @@
 body{
     margin: 0px;
     padding: 0px;
-    background-color: rgb(2, 2, 2);
-    
-}
+    background-image: url('./technological-background-with-different-data-calculations_49459-412.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+  }
 .grid-container {
     
   display: grid;
