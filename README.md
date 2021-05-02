@@ -83,7 +83,7 @@ font-weight: bold;
 background-color:white;
 }
 ```
-`readonly` proprty restrict the use of text input. It will display values instead of taking value. `text-align:right` property used to align numbers to the rght side of the display screen.
+`readonly` proprty restrict the use of text input. It will display values instead of taking value. `text-align:right` property used to align numbers to the right side of the display screen.
 
 ### .grid-container
 This container consist of all input buttons having numbers and operators
@@ -101,7 +101,8 @@ This container consist of all input buttons having numbers and operators
   padding: 3px;
 }
 ```
-Grid container is used to fix button in rows and columns.To use grid layout  `display: grid` property is used. `grid-template-columns:auto auto auto auto` will decide there be four columns in one row.
+Grid container is used to fix button in rows and columns.To use grid layout  `display: grid` property is used. `grid-template-columns:auto auto auto auto` will decide there will be four columns in one row.
+
 
 
 
