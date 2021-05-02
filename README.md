@@ -47,7 +47,7 @@ By using these layouts it becomes very easy to responsive your web app very easi
 * External CSS with name `style.css` linked with html by using `<link>` tag to design calculator app.
 * Content in `<title>` tag will be shown in the browser's title bar or in the page's tab
 
-```html
+```html 
  <div class="container">
 <!-- Heading  -->
 <!-- Display Screen-->
@@ -136,7 +136,7 @@ This container consist of all input buttons having numbers and operators
 ```
 Grid container is used to fix button in rows and columns.To use grid layout  `display: grid` property is used. `grid-template-columns:auto auto auto auto` will decide there will be four columns in one row. Each button in grid container is designed and maintained by using `grid-item` class.
 
-### Row 1
+### Row 1:
 ```html
   <!-- row 1 -->
             <button class="grid-item plus">+</button>
@@ -165,7 +165,7 @@ background-color: #D980FA;
 ```
 `.plus`,`.minus`,`.multiply` and `.divide` classes applying different colors to buttons. Different color scheme make this calculator more eye catchy.
 
-### Row 2
+### Row 2:
 ```html
 <!-- row 2 -->
             <button class="grid-item">7</button>
@@ -183,6 +183,103 @@ background-color: #D980FA;
 
  ```
  `grid-row:span 4` property expand the equal button to the 4 rows.
+ ### Row 3:
+ 
+ ```html
+ <!-- row 3 -->
+            <button class="grid-item">4</button>
+            <button class="grid-item">5</button>
+            <button class="grid-item">6</button>
+
+ ```
+  ### Row 4:
+ 
+ ```html
+<!-- row 4 -->
+            <button class="grid-item">1</button>
+            <button class="grid-item">2</button>
+            <button class="grid-item">3</button>
+           
+ ```
+  ### Row 5:
+ ```html
+<!-- row 5 -->
+            <button class="grid-item">0</button>
+            <button class="grid-item">.</button>
+            <button class="grid-item">C</button>
+ ```
+ Row 3, 4 and 5 consist of value `4,5,6` , `1,2,3` , `0,.,C` respectively.
+ 
+ ### active selector:
+```css
+.grid-item:active{
+  background-color: #757474;
+} 
+```
+:active selector is used to select and style the active element. An element becomes active when you click on it. when grid items clicked their background color turns into grey.
+
+
+ # Step 2: Let's Implement javascript logic:
+ 
+ ## Methodology:
+ #### When you click on a button 
+ 
+ * If is a number (0-9) or operatoer (+,-,*,/) it will be concatenate into the display screen.
+ * If it is equal(=) button than expression in the display screen be evaluted and show result in display screen.
+ * If it is (C) it will clear the display screen.
+ * If it is (.) it will concatenate to the display screen one time in one operand.
+ 
+
+
+ First of all you have to take control of HTML element.You will use selectors to call these inputs and store them in a variable.
+ querySelector() returns the Element within the document that matches the specified selector.
+ ```
+ const screenValue = document.querySelector("#display")
+ ```
+ By using id selector display screen will b accessed and assign to the screenValue variable.
+  ```javascript
+ const buttonValue = document.querySelectorAll("button")
+ ```
+ To access all button `document.querySelectorAll("button")` is used and assigned this to the buttonValue variable.
+ As we do `console.log(buttonValue)` it shows NodeList of all Buttons
+ 
+ ![allnodes](https://user-images.githubusercontent.com/69719511/116821317-d8742f80-ab92-11eb-998d-d51bae5f3f49.PNG)
+
+ ```js
+ buttonValue.forEach(element => {
+    element.addEventListener('click', e => {
+
+
+        let buttonText = e.target.innerText;
+        });
+     });
+ ```
+ * forEach() callback method is used to access all node items and add click event listener.
+ * `let buttonText = e.target.innerText;` access value  of clicked button and store it in buttonText variable.
+ 
+ 
+ ```js
+ if (buttonText === "C") {
+            refreshCalculator();
+        }
+ ```
+
+
+
+ 
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
 
 
