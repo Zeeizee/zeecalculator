@@ -259,10 +259,30 @@ background-color: #D980FA;
  
  
  ```js
+ function refreshCalculator() {
+    isOperator = true;
+    isdot = false;
+    isNumber = true;
+    screenValue.value = "0"
+}
+ 
  if (buttonText === "C") {
             refreshCalculator();
         }
  ```
+if user click on ` C ` button it will refresh calculator setting and reset screen value to 0.
+`isOperator=true` and `isNumber=true` means it user can enter a number or an operator.`isDot=false` means there is no precision in operand.
+
+```js
+ else if (buttonText === '.' && !isdot) {
+            screenValue.value += buttonText;
+            isdot = true;
+        }
+```
+if user click on ` . ` button `isdot` wil be checked. if there is no percision in value ` . ` will be concatenate and make `isdot=true`.it ensure the duplication of percision in operand because only one ` . ` is allowed in one value
+
+
+
 
 
 
