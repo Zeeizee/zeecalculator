@@ -398,7 +398,7 @@ If user click on ` . ` button `isdot` wil be checked. if there is no percision i
             isNumber = false;
         }
 ```
-  If user click ` = ` button display screen expression will be evaluated and result will b shown in display screen
+  If user click ` = ` button display screen expression will be evaluated and result will b shown in display screen.
   
 When all the individual components are pieced together, we have a fully functional calculator. Now you can play with it.
 If you are ready to do more, then:
@@ -410,7 +410,7 @@ I hope you enjoyed this tutorial.
 If you had any doubts, then please comment them below. And if you enjoyed this tutorial, then please hit the like button below. Thank you ;)
 
 ## Recommendation:
-Whether you are building a calculator in JavaScript or working on a more complex project, the idea is to break down the contents in a logical and construed manner. This will help you derive the exact syntax and will lead to a fluid web application. Instead of starting with coding directly, try to understand what is the real purpose of the project you are going to build, How it works, what will be the input and desired output, it will lead you to the code
+Whether you are building a calculator in JavaScript or working on a more complex project, the idea is to break down the contents in a logical and construed manner. This will help you derive the exact syntax and will lead to a fluid web application. Instead of starting with coding directly, try to understand what is the real purpose of the project you are going to build, How it works, what will be the input and desired output, it will lead you to the code.
 
 
 
