@@ -55,7 +55,7 @@ By using these layouts it becomes very easy to responsive your web app very easi
 </div>
 ```
 ### .Container
-        Outer container conatins All elements of calculator.
+        Outer container conatins All elements of calculator like calculator headind, display screen and buttons.
 ```css
 .container{        
     display: flex;
@@ -79,7 +79,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 ```
-properties are used to set the direction of elements from inner side of container and align them in center of the container.
+Display properties are used to set the direction of elements from inner side of container and align them in center of the container.
 
 ```css
  position: absolute;
@@ -90,8 +90,8 @@ properties are used to set the direction of elements from inner side of containe
 postion properties are used to set the container in center of the media screen.
 
 ### #Display
-Display screen is the representation of input numbers, Operators nad their results
-```html
+Display screen is the representation of input numbers, Operators and their results
+```html 
 <input type="text" name="number" id="display" readonly>
 ```
 ```css
@@ -226,14 +226,14 @@ background-color: #D980FA;
  
  * If is a number (0-9) or operatoer (+,-,*,/) it will be concatenate into the display screen.
  * If it is equal(=) button than expression in the display screen be evaluted and show result in display screen.
- * If it is (C) it will clear the display screen.
+ * If it is ( C ) it will reset the calculator and set the screen value to 0.
  * If it is (.) it will concatenate to the display screen one time in one operand.
  
 
 
  First of all you have to take control of HTML element.You will use selectors to call these inputs and store them in a variable.
  querySelector() returns the Element within the document that matches the specified selector.
- ```
+ ```js
  const screenValue = document.querySelector("#display")
  ```
  By using id selector display screen will b accessed and assign to the screenValue variable.
@@ -258,6 +258,12 @@ background-color: #D980FA;
  * `let buttonText = e.target.innerText;` access value  of clicked button and store it in buttonText variable.
  
  
+ ## NOTE:
+* Expression is the combination of operators and operands.
+* There is only one operator between two operands.
+* Only `+` and `-` operators can be prefix of number.
+* Only one `.` is allowed in one operand
+ 
  ```js
  function refreshCalculator() {
     isOperator = true;
@@ -279,27 +285,129 @@ if user click on ` C ` button it will refresh calculator setting and reset scree
             isdot = true;
         }
 ```
-if user click on ` . ` button `isdot` wil be checked. if there is no percision in value ` . ` will be concatenate and make `isdot=true`.it ensure the duplication of percision in operand because only one ` . ` is allowed in one value
+If user click on ` . ` button `isdot` wil be checked. if there is no percision in value ` . ` will be concatenate and make `isdot=true`.it ensure the duplication of percision in operand because only one ` . ` is allowed in one value.
 
 
 
+```js
+  else if (buttonText === '+' && isOperator) {
+            // checking if display screen vaule is not equal to zero operator will b concatenate like 23+
+            if (screenValue.value != '0') {
+                screenValue.value += buttonText;
+            }
+            //if display value is 0 then + will be add as prefix of the operand
+            else {
+                screenValue.value = buttonText;
+            }
+            isOperator = false;
+            isNumber = true;
+            isdot = false;
 
+        }
+```
+* if user clicks on ` + ` button `isOperator` will be checked if there is already an operator no more operator will be added otherwise operator will be added.
+* if display screen vaue is 0 and user enter + operator. The opertor will be added as prefix on the left side of the operand otherwise it will be concatenated on the right side of the operand.
+* Now its time to set the values of boolean `isOperator=false` which means no more operators will b concatenated until another operand will be added.
+* `isNumber=true` means user can enter another operand.
+* `isdot=false` means user can add ` . ` in another operand.
 
+```js
+ else if (buttonText === '-' && isOperator) {
+            if (screenValue.value != '0') {
+                screenValue.value += buttonText;
+            }
+            else {
+                screenValue.value = buttonText;
+            }
+            isOperator = false;
+            isNumber = true;
+            isdot = false;
+        }
+```
+* if user click on ` - ` button `isOperator` will be checked if there is already an operator no more operator will be added otherwise operator will be added.
+* if display screen vaue is 0 and user enter - operator. The opertor will bs added as prefix on the left side of the operand otherwise it will be concatenated on the right side of the operand.
+* Now its time to set the values of boolean `isOperator=false` which means no more operators will b concatenated until another operand will be added.
+* `isNumber=true` means user can enter another operand.
+* `isdot=false` means user can add ` . ` in another operand.
 
+```js
+ else if (buttonText === '*' && isOperator) {
+            if (screenValue.value != '0') {
+                screenValue.value += buttonText;
+                isOperator = false;
+                isNumber = true;
+                isdot = false;
+            }
+```
+
+* if user click on ` * ` button `isOperator` will be checked if there is already an operator no more operator will be added otherwise operator will be added.
+* ` * ` can never be used as prefix operator so it will only be concatenated if the display screen having value > 0
+* Now its time to set the values of boolean `isOperator=false` which means no more operators will b concatenated until another operand will be added.
+* `isNumber=true` means user can enter another operand.
+* `isdot=false` means user can add ` . ` in another operand. 
  
+ 
+ ```js
+   else if (buttonText === '/' && isOperator) {
+            if (screenValue.value != '0') {
+                screenValue.value += buttonText;
+                isOperator = false;
+                isNumber = true;
+                isdot = false;
+            }
+
+        }
+```
+ 
+ 
+ 
+ 
+* If user click on ` / ` button `isOperator` will be checked if there is already an operator no more operator will be added otherwise operator will be added.
+* ` / ` can never be used as prefix operator so it will only be concatenated if the display screen having value > 0
+* Now its time to set the values of boolean `isOperator=false` which means no more operators will b concatenated until another operand will be added.
+* `isNumber=true` means user can enter another operand.
+* `isdot=false` means user can add ` . ` in another operand. 
+ 
+ 
+```js
+   else if (buttonText >= '0' && buttonText <= 9 && isNumber) {
+            if (buttonText === '0' && screenValue.value === '0') {
+            //do nothing.
+            }
+            else if (screenValue.value === '0') {
+            //conver the 0 to the button value
+                screenValue.value = buttonText;
+            }
+            else {
+            //append 0 into the value
+                screenValue.value += buttonText;
+            }
+            // allow user to add operator after operand 
+            isOperator = true;
+        }
+```
+* Values from ( 0-9 ) will b inserted and concatenated.
+* If `buttonText === '0' && screenValue.value === '0' ` it will do nothing maens display screen value will remain 0.
+* If  `screenValue.value === '0'` but `buttonText > 0` then display  screen value will be equal to buttonText value.
+* Otherwise `0` will be append display screen value.
+
+```js
+  else if (buttonText === '=') {
+            screenValue.value = eval(screenValue.value)
+
+            isNumber = false;
+        }
+```
+  If user click ` = ` button display screen expression will be evaluated and result will b shown in display screen
+  
+When all the individual components are pieced together, we have a fully functional calculator.
+
+## Recommendation:
+Whether you are building a calculator in JavaScript or working on a more complex project, the idea is to break down the contents in a logical and construed manner. This will help you derive the exact syntax and will lead to a fluid web application. Instead of starting with coding directly, try to understand what is the real purpose of the project you are going to build, How it works, what will be the input and desired output, it will lead you to the code
 
 
 
 
-
- 
- 
- 
- 
- 
- 
- 
- 
  
 
 
